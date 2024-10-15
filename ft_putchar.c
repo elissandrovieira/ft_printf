@@ -6,13 +6,19 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:58:25 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 23:43:20 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:21:11 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	int	n;
+
+	n = write(1, &c, 1);
+	if (n < 0)
+		return (-1);
+	else
+		return (1);
 }

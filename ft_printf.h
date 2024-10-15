@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:50:18 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 23:37:59 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/15 15:09:05 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdlib.h>
 
 int				ft_printf(const char *str, ...);
-void			ft_putnbr_hex(unsigned long n, char c);
-void			ft_putnbr(long int n);
-void			ft_putchar(char c);
-void			ft_putstr(char *s);
+int				ft_putchar(char c);
+int				ft_putstr(char *s);
+char			*ft_itoa(long int n);
+char			*ft_itoa_hex(unsigned long n, char c);
 unsigned long	ft_strlen(const char *s);
 
 #endif
