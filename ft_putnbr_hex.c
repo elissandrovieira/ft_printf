@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 13:50:18 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 23:28:16 by eteofilo         ###   ########.fr       */
+/*   Created: 2024/10/14 21:45:33 by eteofilo          #+#    #+#             */
+/*   Updated: 2024/10/14 23:30:52 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void	ft_putnbr_hex(unsigned long n, char c)
+{
+	char	*hex;
 
-int	ft_printf(const char *str, ...);
-void	ft_putnbr_hex(unsigned long n, char c);
-void	ft_putnbr(long int n);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-unsigned long	ft_strlen(const char *s);
-
-#endif
+	if (c == 'l')
+		hex = "0123456789abcdef";
+	if (c == 'U')
+		hex = "0123456789ABCDEF";
+	if (n >= 16)
+	{
+		ft_putnbr_hex(n / 16, c);
+		write(1, &hex[n % 16], 1);
+	}
+	if (n < 16)
+	{
+		write(1, &hex[n % 16], 1);
+	}
+}

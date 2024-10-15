@@ -1,13 +1,15 @@
 NAME=libftprintf.a
-SRC=ft_printf.c
+SRC=ft_printf.c \
+	ft_putnbr_hex.c \
+	ft_putnbr.c \
+	ft_putchar.c \
+	ft_putstr.c \
+	ft_strlen.c
 OBJS=$(SRC:.c=.o)
 CC=cc
 CC_FLAGS=-Wall -Wextra -Werror
 
-all: libft $(NAME)
-
-libft:
-	make -C libft
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
@@ -25,4 +27,5 @@ re: fclean $(NAME)
 
 run:
 	clear
-	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -l:libftprintf.a
+	$(CC) $(CC_FLAGS) main.c -L. -l:libftprintf.a
+	./a.out

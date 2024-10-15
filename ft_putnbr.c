@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 13:50:18 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 23:28:16 by eteofilo         ###   ########.fr       */
+/*   Created: 2024/09/10 12:12:49 by eteofilo          #+#    #+#             */
+/*   Updated: 2024/10/14 23:25:51 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+void	ft_putnbr(long int n)
+{
+	char	cn;
 
-int	ft_printf(const char *str, ...);
-void	ft_putnbr_hex(unsigned long n, char c);
-void	ft_putnbr(long int n);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-unsigned long	ft_strlen(const char *s);
-
-#endif
+	if (n < 0)
+	{
+		n = n * -1;
+		write(1, "-", 1);
+	}
+	if (n >= 10)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+	if (n < 10)
+	{
+		cn = n + 48;
+		write(1, &cn, 1);
+	}
+}

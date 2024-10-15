@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/14 13:50:18 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 23:28:16 by eteofilo         ###   ########.fr       */
+/*   Created: 2024/09/23 22:53:11 by eteofilo          #+#    #+#             */
+/*   Updated: 2024/10/14 22:31:14 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
 
-int	ft_printf(const char *str, ...);
-void	ft_putnbr_hex(unsigned long n, char c);
-void	ft_putnbr(long int n);
-void	ft_putchar(char c);
-void	ft_putstr(char *s);
-unsigned long	ft_strlen(const char *s);
-
-#endif
+	i = 0;
+	while (s[i] != 0)
+		i++;
+	return (i);
+}
