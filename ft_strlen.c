@@ -6,11 +6,11 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 22:53:11 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 22:31:14 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/14 23:43:38 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *s)
 {

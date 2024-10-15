@@ -6,12 +6,11 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:57:00 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 23:31:56 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/14 23:42:38 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include <stdio.h>
+#include "ft_printf.h"
 
 static void get_arg(va_list *ap, char c)
 {

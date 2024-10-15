@@ -6,11 +6,11 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 13:58:25 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 22:22:06 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/14 23:43:20 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putchar(char c)
 {

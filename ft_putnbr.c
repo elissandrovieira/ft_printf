@@ -6,11 +6,11 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 12:12:49 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/14 23:25:51 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/14 23:43:11 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_putnbr(long int n)
 {
