@@ -6,23 +6,23 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 13:57:00 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/15 16:03:33 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/16 00:18:14 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static char *print_u(int n)
+static int	print_u(int n)
 {
-	char *str;
+	int	len;
 	if (n < 0)
 	{
-		str = ft_itoa(4294967296 + n);
+		len = ft_putnbr(4294967296 + n);
 	}
 	else
-		str = ft_itoa(n);
-	return (str);
+		len = ft_putnbr(n);
+	return (len);
 }
 
 static int get_arg(va_list *ap, char c)
@@ -35,18 +35,15 @@ static int get_arg(va_list *ap, char c)
 	if (c == 's')
 		n = ft_putstr(va_arg(*ap, char *));
 	if (c == 'p')
-	{
-		n = ft_putstr("0x");
-		n += ft_putstr(ft_itoa_hex(va_arg(*ap, unsigned long), 'l'));
-	}
+		n = ft_putnbr_ptr(va_arg(*ap, long));
 	if (c == 'd' || c == 'i')
-		n = ft_putstr(ft_itoa(va_arg(*ap, int)));
+		n = ft_putnbr(va_arg(*ap, int));
 	if (c == 'u')
-		n = ft_putstr(print_u(va_arg(*ap, int)));
+		n = print_u(va_arg(*ap, int));
 	if (c == 'x')
-		n = ft_putstr(ft_itoa_hex(va_arg(*ap, unsigned long), 'l'));
+		n = ft_putnbr_hex(va_arg(*ap, unsigned long), 'x');
 	if (c == 'X')
-		n = ft_putstr(ft_itoa_hex(va_arg(*ap, unsigned long), 'U'));
+		n = ft_putnbr_hex(va_arg(*ap, unsigned long), 'X');
 	if (c == '%')
 		n = ft_putchar('%');
 	return (n);

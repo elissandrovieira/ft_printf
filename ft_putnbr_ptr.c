@@ -1,56 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_ptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/10 12:12:49 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/15 23:32:38 by eteofilo         ###   ########.fr       */
+/*   Created: 2024/10/15 22:17:08 by eteofilo          #+#    #+#             */
+/*   Updated: 2024/10/16 00:16:16 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static int	get_len(long int n)
+static int	get_len(unsigned long n)
 {
 	int	len;
 
-	len = 1;
-	if (n < 0)
+	len = 3;
+	while (n > 15)
 	{
-		n *= -1;
-		len++;
-	}
-	while (n > 9)
-	{
-		n /= 10;
+		n /= 16;
 		len++;
 	}
 	return (len);
 }
 
-int	ft_putnbr(long int n)
+static void	ft_putnbr_base(unsigned long n, char *base)
 {
-	char	cn;
-	int		len;
+	if (n >= 16)
+	{
+		ft_putnbr_base(n / 16, base);
+		write(1, &base[n % 16], 1);
+	}
+	if (n < 16)
+		write(1, &base[n % 16], 1);
+}
 
-	len = get_len(n);
-	if (n < 0)
+int	ft_putnbr_ptr(long int n)
+{
+	char	*hex;
+
+	hex = "0123456789abcdef";
+	if (n == 0)
 	{
-		n *= -1;
-		write(1, "-", 1);
+		write(1, "(nil)", 5);
+		return (5);
 	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	if (n < 10)
-	{
-		cn = n + 48;
-		write(1, &cn, 1);
-	}
-	return (len);
+	write(1, "0x", 2);
+	ft_putnbr_base(n, hex);
+	return (get_len(n));
 }

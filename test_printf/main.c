@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
 #include "ft_printf.h"
 
 int main(void)
@@ -11,8 +10,7 @@ int main(void)
 	//ft_printf("ft_printf: %p, str: %s\n", str, str);
 	//ft_printf("1, 2, 3, -d test, testing, 0.4s sound, 1, 2, 3xp, sound, -*dtest");
 	//printf("printf return: %i\n",printf("%x", 160));
-	printf("ft_printf return: %i\n", printf("|%.4d|", 42));
-	printf("ft_printf return: %i\n", printf("|%-5d|", 42));
+	printf("ft_printf return: %i\n", ft_printf(" NULL %s NULL ", 0));
 	//printf("size %lu \n", sizeof(ii));
 	//printf("size %lu \n", sizeof(i));
 	return 0;
